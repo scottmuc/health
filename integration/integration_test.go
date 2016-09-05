@@ -1,7 +1,6 @@
 package integration_test
 
 import (
-	"os"
 	"os/exec"
 
 	. "github.com/onsi/ginkgo"
@@ -10,23 +9,11 @@ import (
 	"github.com/onsi/gomega/gexec"
 )
 
-var (
-	pathToHealthCLI       string
-	testStravaAccessToken string
-)
+var _ = Describe("Running the health binary", func() {
+	var pathToHealthCLI string
 
-func getEnvOrLeaveUnset(name string) string {
-	tmp := os.Getenv(name)
-	if tmp == "" {
-		tmp = "not set"
-	}
-	return tmp
-}
-
-var _ = Describe("Integration", func() {
 	BeforeSuite(func() {
 		var err error
-		testStravaAccessToken = getEnvOrLeaveUnset("STRAVA_ACCESS_TOKEN")
 		pathToHealthCLI, err = gexec.Build("github.com/scottmuc/health")
 		Expect(err).NotTo(HaveOccurred())
 	})
@@ -36,11 +23,19 @@ var _ = Describe("Integration", func() {
 	})
 
 	It("exits with a status code of 0", func() {
-		Expect(testStravaAccessToken).ToNot(Equal("not set"))
+		testStravaAccessToken := getEnvOrFail("STRAVA_ACCESS_TOKEN")
 		command := exec.Command(pathToHealthCLI, "-stravaAccessToken", testStravaAccessToken)
 		session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 		Expect(err).NotTo(HaveOccurred())
 		Eventually(session).Should(gexec.Exit(0))
+	})
+
+	It("prints out an acvitity and when it happened", func() {
+		testStravaAccessToken := getEnvOrFail("STRAVA_ACCESS_TOKEN")
+		command := exec.Command(pathToHealthCLI, "-stravaAccessToken", testStravaAccessToken)
+		session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
+		Expect(err).NotTo(HaveOccurred())
+		Eventually(session).Should(gbytes.Say(`.+\. Occured on .+`))
 	})
 
 	Context("when strava access token is not provided", func() {
@@ -55,7 +50,7 @@ var _ = Describe("Integration", func() {
 			command := exec.Command(pathToHealthCLI)
 			session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 			Expect(err).ToNot(HaveOccurred())
-			Eventually(session).Should(gbytes.Say("stravaAccessToken is required"))
+			Eventually(session.Err).Should(gbytes.Say("stravaAccessToken is required"))
 		})
 	})
 })

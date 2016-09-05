@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
+	"log"
 
-	"github.com/strava/go.strava"
+	"github.com/scottmuc/health/strava"
 )
 
 func main() {
@@ -13,18 +13,9 @@ func main() {
 	flag.Parse()
 
 	if *accessToken == "<required>" {
-		fmt.Println("stravaAccessToken is required")
-		os.Exit(1)
+		log.Fatal("stravaAccessToken is required")
 	}
 
-	client := strava.NewClient(*accessToken)
-	service := strava.NewCurrentAthleteService(client)
-
-	activities, err := service.ListActivities().Page(1).PerPage(1).Do()
-	if err != nil {
-		panic(err)
-	}
-
-	latestActivity := activities[0]
-	fmt.Println(latestActivity)
+	activityName, activityDate := strava.GetLatestActivity(*accessToken)
+	fmt.Printf("%s. Occured on %s\n", activityName, activityDate)
 }
