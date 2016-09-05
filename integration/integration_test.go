@@ -10,18 +10,6 @@ import (
 )
 
 var _ = Describe("Running the health binary", func() {
-	var pathToHealthCLI string
-
-	BeforeSuite(func() {
-		var err error
-		pathToHealthCLI, err = gexec.Build("github.com/scottmuc/health")
-		Expect(err).NotTo(HaveOccurred())
-	})
-
-	AfterSuite(func() {
-		gexec.CleanupBuildArtifacts()
-	})
-
 	It("exits with a status code of 0", func() {
 		testStravaAccessToken := getEnvOrFail("STRAVA_ACCESS_TOKEN")
 		command := exec.Command(pathToHealthCLI, "-stravaAccessToken", testStravaAccessToken)
