@@ -16,6 +16,7 @@ func main() {
 		log.Fatal("stravaAccessToken is required")
 	}
 
-	activityName, activityDate := strava.GetLatestActivity(*accessToken)
+	stravaService := strava.NewService(*accessToken)
+	activityName, activityDate := stravaService.GetLatestActivity()
 	fmt.Printf("%s. Occured on %s\n", activityName, activityDate)
 }
