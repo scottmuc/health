@@ -4,7 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"time"
 
+	"github.com/scottmuc/health/dates"
 	"github.com/scottmuc/health/strava"
 )
 
@@ -18,5 +20,6 @@ func main() {
 
 	stravaService := strava.NewService(*accessToken)
 	activityName, activityDate := stravaService.GetLatestActivity()
-	fmt.Printf("%s. Occured on %s\n", activityName, activityDate)
+	daysAgo := dates.DayDifference(activityDate, time.Now())
+	fmt.Printf("%s. Occurred %d day(s) ago\n", activityName, daysAgo)
 }

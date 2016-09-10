@@ -23,7 +23,7 @@ var _ = Describe("Running the health binary", func() {
 		command := exec.Command(pathToHealthCLI, "-stravaAccessToken", testStravaAccessToken)
 		session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 		Expect(err).NotTo(HaveOccurred())
-		Eventually(session).Should(gbytes.Say(`.+\. Occured on .+`))
+		Eventually(session).Should(gbytes.Say(`.+\. Occurred [0-9]+ day\(s\) ago`))
 	})
 
 	Context("when strava access token is not provided", func() {
