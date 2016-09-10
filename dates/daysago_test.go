@@ -3,13 +3,11 @@ package dates_test
 import (
 	"time"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
-)
 
-func dayDifference(then time.Time, now time.Time) int {
-	return now.Day() - then.Day()
-}
+	"github.com/scottmuc/health/dates"
+)
 
 func parseDate(date string) time.Time {
 	timeFormat := "2006-01-02 15:04:05 MST"
@@ -18,18 +16,18 @@ func parseDate(date string) time.Time {
 	return returnVal
 }
 
-var _ = Describe("Calculating number of days between two dates", func() {
-	It("returns 0 if the dates are the same", func() {
-		then := parseDate("1990-09-03 17:35:43 UTC")
-		now := parseDate("1990-09-03 18:32:15 UTC")
-		daysAgo := dayDifference(then, now)
-		Expect(daysAgo).To(Equal(0))
-	})
-
-	It("returns 1 if the dates are a day apart", func() {
-		then := parseDate("1990-09-03 17:35:43 UTC")
-		now := parseDate("1990-09-04 18:32:15 UTC")
-		daysAgo := dayDifference(then, now)
-		Expect(daysAgo).To(Equal(1))
-	})
-})
+var _ = DescribeTable("DayDifference",
+	func(then string, now string, expected int) {
+		thenDate := parseDate(then)
+		nowDate := parseDate(now)
+		daysAgo := dates.DayDifference(thenDate, nowDate)
+		Expect(daysAgo).To(Equal(expected))
+	},
+	Entry("same day", "1990-09-03 17:35:43 UTC", "1990-09-03 18:32:15 UTC", 0),
+	Entry("same day boundaries", "1990-09-03 00:00:00 UTC", "1990-09-03 23:59:59 UTC", 0),
+	Entry("day boundary", "1990-09-03 23:35:43 UTC", "1990-09-04 00:32:15 UTC", 1),
+	Entry("next day extremes", "1990-09-03 00:00:00 UTC", "1990-09-04 23:59:59 UTC", 1),
+	Entry("month boundary", "1990-09-30 17:35:43 UTC", "1990-10-01 18:32:15 UTC", 1),
+	Entry("year boundary", "1990-12-31 23:35:43 UTC", "1991-01-01 00:32:15 UTC", 1),
+	Entry("leap year", "2000-02-28 23:35:43 UTC", "2000-03-01 00:32:15 UTC", 2),
+)
