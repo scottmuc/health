@@ -3,12 +3,28 @@ package main
 import (
 	"html/template"
 	"os"
+	"time"
 )
 
 func main() {
-	t, err := template.New("dashboard").Parse("<html><body>{{.}}</body></html>")
+	dashboardTemplate := `<html>
+<body>
+{{ .GeneratedDate }}
+</body>
+</html>
+`
+
+	t, err := template.New("dashboard").Parse(dashboardTemplate)
+
 	if err != nil {
 		panic(err)
 	}
-	t.Execute(os.Stdout, "test")
+
+	values := struct {
+		GeneratedDate string
+	}{
+		GeneratedDate: time.Now().Format("Jan 2 2006"),
+	}
+
+	t.Execute(os.Stdout, values)
 }
