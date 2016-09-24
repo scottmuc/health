@@ -18,6 +18,11 @@
 
 .tile span {
     font-size: 96px;
+    display: block;
+}
+
+.tile span.previous {
+    font-size: 24px;
 }
 
 .failed {
@@ -32,7 +37,7 @@
 
 .warning {
     background-color: #ffaa00;
-    color: #eeeeee;  
+    color: #eeeeee;
 }
 
 .todo {
@@ -55,36 +60,42 @@ h2 { clear:both; }
 
 <h2>Physical Health</h2>
 
-<div class="tile success">
+<div class="tile failed">
     <h3>days since last exercise activity</h3>
-    <span>2</span>
+    <span>8</span>
+    <span class="previous">previous 2</span>
 </div>
 
-<div class="tile success">
+<div class="tile failed">
     <h3>meals cooked in last week</h3>
-    <span>5</span>
+    <span>0</span>
+    <span class="previous">previous 5</span>
 </div>
 
 <div class="tile failed">
     <h3>weight</h3>
-    <span>91</span>
+    <span>91+</span>
+    <span class="previous">previous 91</span>
 </div>
 
-<div class="tile todo">
+<div class="tile failed">
     <h3>alcoholic drinks consumed last week</h3>
-    <span></span>
+    <span>33</span>
+    <span class="previous">previous unknown</span>
 </div>
 
 <h2>Mental Health</h2>
 
-<div class="tile failed">
+<div class="tile success">
     <h3>pocket reading queue</h3>
-    <span>27</span>
+    <span>6</span>
+    <span class="previous">previous 27</span>
 </div>
 
 <div class="tile failed">
-    <h3>podcast episodes queued</h3>
-    <span>20+ hours</span>
+    <h3>podcast episode hours queued</h3>
+    <span>34</span>
+    <span class="previous">previous 20+ (a guess)</span>
 </div>
 
 <div class="tile todo">
@@ -106,7 +117,8 @@ h2 { clear:both; }
 
 <div class="tile failed">
     <h3>number of months income that's liquid (and not invested)</h3>
-    <span>10</span>
+    <span>8</span>
+    <span class="previous">previous 10</span>
 </div>
 
 <div class="tile success">
@@ -120,7 +132,8 @@ h2 { clear:both; }
 </div>
 
 <footer>
-last updated: Sep 16 2016
+last updated: Sep 24 2016
+previous update: Sep 16 2016
 </footer>
 </body>
 </html>
