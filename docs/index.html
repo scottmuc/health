@@ -21,10 +21,6 @@
     display: block;
 }
 
-.tile span.previous {
-    font-size: 24px;
-}
-
 .failed {
     background-color: #aa0000;
     color: #eeeeee;
@@ -37,11 +33,6 @@
 
 .warning {
     background-color: #ffaa00;
-    color: #eeeeee;
-}
-
-.todo {
-    background-color: #0000aa;
     color: #eeeeee;
 }
 
@@ -60,52 +51,36 @@ h2 { clear:both; }
 
 <h2>Physical Health</h2>
 
-<div class="tile failed">
+<div class="tile success">
     <h3>days since last exercise activity</h3>
-    <span>8</span>
-    <span class="previous">previous 2</span>
+    <span>0</span>
 </div>
 
-<div class="tile failed">
+<div class="tile warning">
     <h3>meals cooked in last week</h3>
-    <span>0</span>
-    <span class="previous">previous 5</span>
+    <span>3</span>
 </div>
 
 <div class="tile failed">
     <h3>weight</h3>
-    <span>91+</span>
-    <span class="previous">previous 91</span>
+    <span>92</span>
 </div>
 
 <div class="tile failed">
     <h3>alcoholic drinks consumed last week</h3>
-    <span>33</span>
-    <span class="previous">previous unknown</span>
+    <span>28</span>
 </div>
 
 <h2>Mental Health</h2>
 
 <div class="tile success">
     <h3>pocket reading queue</h3>
-    <span>6</span>
-    <span class="previous">previous 27</span>
+    <span>3</span>
 </div>
 
 <div class="tile failed">
     <h3>podcast episode hours queued</h3>
-    <span>34</span>
-    <span class="previous">previous 20+ (a guess)</span>
-</div>
-
-<div class="tile todo">
-    <h3>number of pomodoros spent writing articles/blog posts last week</h3>
-    <span></span>
-</div>
-
-<div class="tile todo">
-    <h3>thinking of more ideas for this</h3>
-    <span></span>
+    <span>21</span>
 </div>
 
 <h2>Financial Health</h2>
@@ -118,22 +93,10 @@ h2 { clear:both; }
 <div class="tile failed">
     <h3>number of months income that's liquid (and not invested)</h3>
     <span>8</span>
-    <span class="previous">previous 10</span>
-</div>
-
-<div class="tile success">
-    <h3>value of liabilities</h3>
-    <span>0</span>
-</div>
-
-<div class="tile todo">
-    <h3>percentage of income saved last month</h3>
-    <span></span>
 </div>
 
 <footer>
-last updated: Sep 24 2016
-previous update: Sep 16 2016
+last updated: Sep 28 2016
 </footer>
 </body>
 </html>
