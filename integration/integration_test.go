@@ -27,18 +27,12 @@ var _ = Describe("Running the health binary", func() {
 	})
 
 	Context("when strava access token is not provided", func() {
-		It("does not exit 0", func() {
-			command := exec.Command(pathToHealthCLI)
-			session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
-			Expect(err).ToNot(HaveOccurred())
-			Eventually(session).ShouldNot(gexec.Exit(0))
-		})
-
 		It("it writes a helpful message about the missing access token", func() {
 			command := exec.Command(pathToHealthCLI)
 			session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
 			Expect(err).ToNot(HaveOccurred())
-			Eventually(session.Err).Should(gbytes.Say("stravaAccessToken is required"))
+			Eventually(session).Should(gexec.Exit(0))
+			Eventually(session.Out).Should(gbytes.Say("No stravaAccessToken provided, ignoring..."))
 		})
 	})
 })
