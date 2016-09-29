@@ -3,6 +3,7 @@ package integration_test
 import (
 	"fmt"
 	"os"
+	"os/exec"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -16,12 +17,6 @@ func TestIntegration(t *testing.T) {
 	RunSpecs(t, "Integration Suite")
 }
 
-func getEnvOrFail(name string) string {
-	envVar := os.Getenv(name)
-	Expect(envVar).ToNot(BeEmpty(), fmt.Sprintf("Expected the environment variable '%s' to be set", name))
-	return envVar
-}
-
 var pathToHealthCLI string
 
 var _ = BeforeSuite(func() {
@@ -33,3 +28,16 @@ var _ = BeforeSuite(func() {
 var _ = AfterSuite(func() {
 	gexec.CleanupBuildArtifacts()
 })
+
+func getEnvOrFail(name string) string {
+	envVar := os.Getenv(name)
+	Expect(envVar).ToNot(BeEmpty(), fmt.Sprintf("Expected the environment variable '%s' to be set", name))
+	return envVar
+}
+
+func executeBin(args ...string) *gexec.Session {
+	command := exec.Command(pathToHealthCLI, args...)
+	session, err := gexec.Start(command, GinkgoWriter, GinkgoWriter)
+	Expect(err).NotTo(HaveOccurred())
+	return session
+}
