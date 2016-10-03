@@ -5,45 +5,79 @@
 <title>Scott Muc's Health Dashboard</title>
 <style type="text/css">
 
+body {
+    font-family: 'Helvetica';
+}
 .tile {
-    height: 300px;
-    width: 300px;
     text-align: center;
-
     margin: 20px 0 20px 20px;
     padding: 0;
-
     float: left;
+    border-radius: 12%;
+    padding: 22px;
+    height: 190px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-
-.tile span {
+.tile > span {
     font-size: 96px;
     display: block;
 }
-
 .failed {
-    background-color: #aa0000;
+    background-color: #ca2323;
     color: #eeeeee;
 }
-
 .success {
-    background-color: #00aa00;
+    background-color: #09b15a;
     color: #eeeeee;
 }
-
 .warning {
-    background-color: #ffaa00;
+    background-color: #ffb219;
     color: #eeeeee;
 }
-
+    
+em {
+    font-size: 0.8em;
+    display: block;
+    line-height: 1.2em;
+    color: rgba(255,255,255,0.7);
+    margin-top: 5px;
+}
 footer {
     display: block;
     position: absolute;
     right: 20px;
     top: 20px;
 }
-
-h2 { clear:both; }
+h2 { 
+    clear: both;
+    padding-left: 20px;
+    color: #333;
+    margin-bottom: 0;
+}
+ 
+h3 {
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+    
+.half {
+    width: 46.9%;
+    display: inline-block;
+}
+    
+@media (max-width: 600px) {
+    .half {
+        width: 100%;
+    }
+}
+    
+.unit {
+    font-size: 0.5em;
+    display: inline-block;
+}
 
 </style>
 </head>
@@ -53,12 +87,12 @@ h2 { clear:both; }
 
 <div class="tile success">
     <h3>days since last exercise activity</h3>
-    <span>0</span>
+    <span>1</span>
 </div>
 
 <div class="tile success">
-    <h3>meals cooked in last week</h3>
-    <span>7</span>
+    <h3>meals cooked<em>last week</em></h3>
+    <span>8</span>
 </div>
 
 <div class="tile failed">
@@ -66,37 +100,41 @@ h2 { clear:both; }
     <span>92</span>
 </div>
 
-<div class="tile warning">
-    <h3>alcoholic drinks consumed last 7 days</h3>
-    <span>11</span>
-</div>
-
-<h2>Mental Health</h2>
-
 <div class="tile success">
-    <h3>pocket reading queue</h3>
-    <span>2</span>
+    <h3>alcoholic drinks consumed<em>last 7 days</em></h3>
+    <span>7</span>
 </div>
 
-<div class="tile warning">
-    <h3>podcast episode hours queued</h3>
-    <span>15</span>
+<div class="half">
+    <h2>Mental Health</h2>
+
+    <div class="tile success">
+        <h3>pocket reading queue</h3>
+        <span>2</span>
+    </div>
+
+    <div class="tile warning">
+        <h3>podcast episodes</h3>
+        <span>15<span class="unit">h</span></span>
+    </div>
 </div>
 
-<h2>Financial Health</h2>
+<div class="half">
+    <h2>Financial Health</h2>
 
-<div class="tile success">
-    <h3>growth in networth last month (percentage relative to financial independence target)</h3>
-    <span>0.6%</span>
-</div>
+    <div class="tile success">
+        <h3>monthly growth of networth<em>(% relative to financial independence target)</em></h3>
+        <span>0.6<span class="unit">%</span></span>
+    </div>
 
-<div class="tile warning">
-    <h3>number of months income that's liquid (and not invested)</h3>
-    <span>5</span>
+    <div class="tile warning">
+        <h3>number of months income<em>liquid (and not invested)</em></h3>
+        <span>5</span>
+    </div>
 </div>
 
 <footer>
-last updated: Oct 02 2016
+last updated: Oct 03 2016
 </footer>
 </body>
 </html>
