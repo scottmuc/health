@@ -1,3 +1,25 @@
-# HELP physical_time_since_last_workout_in_days The number of days since the last workout
 # TYPE physical_time_since_last_workout_in_days gauge
 physical_time_since_last_workout_in_days 1
+
+# TYPE physical_meals_cooked_in_last_7_days_count gauge
+physical_meals_cooked_in_last_7_days_count 4
+
+# TYPE physical_body_weight_kilos gauge
+physical_body_weight_kilos 92
+
+# TYPE physical_drinks_in_last_7_days_count gauge
+physical_drinks_in_last_7_days_count 25
+
+
+# TYPE mental_pocket_reading_queue_articles gauge
+mental_pocket_reading_queue_articles 37
+
+# TYPE mental_podcast_episodes_hours guage
+mental_podcast_episodes_hours 7
+
+
+# TYPE financial_monthly_networth_grown guage
+financial_monthly_networth_grown 0.6
+
+# TYPE financial_liquid_assets_months guage
+financial_liquid_assets_months 2
