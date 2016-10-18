@@ -1,0 +1,4 @@
+health_physical_days_since_workout 1
+health_physical_meals_cooked_last_7_days 4
+health_physical_body_weight 92
+health_physical_alcoholic_units_last_7_days 25
