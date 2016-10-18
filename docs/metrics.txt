@@ -15,7 +15,7 @@ physical_drinks_in_last_7_days_count 25
 mental_pocket_reading_queue_articles 37
 
 # TYPE mental_podcast_episodes_hours gauge
-mental_podcast_episodes_hours 7
+mental_podcast_episodes_hours 9
 
 
 # TYPE financial_monthly_networth_grown gauge
