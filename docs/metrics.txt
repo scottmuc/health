@@ -8,14 +8,14 @@ physical_meals_cooked_in_last_7_days_count 4
 physical_body_weight_kilos 92
 
 # TYPE physical_drinks_in_last_7_days_count gauge
-physical_drinks_in_last_7_days_count 12
+physical_drinks_in_last_7_days_count 10
 
 
 # TYPE mental_pocket_reading_queue_articles gauge
-mental_pocket_reading_queue_articles 12
+mental_pocket_reading_queue_articles 7
 
 # TYPE mental_podcast_episodes_hours gauge
-mental_podcast_episodes_hours 5
+mental_podcast_episodes_hours 7
 
 
 # TYPE financial_monthly_networth_grown gauge
