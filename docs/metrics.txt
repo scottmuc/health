@@ -12,7 +12,7 @@ physical_drinks_in_last_7_days_count 8
 
 
 # TYPE mental_pocket_reading_queue_articles gauge
-mental_pocket_reading_queue_articles 4
+mental_pocket_reading_queue_articles 0
 
 # TYPE mental_podcast_episodes_hours gauge
 mental_podcast_episodes_hours 0
