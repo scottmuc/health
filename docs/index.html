@@ -39,9 +39,9 @@ body {
 }
 
 .tile a {
-    color: #eeeeee;    
+    color: #eeeeee;
 }
-    
+
 em {
     font-size: 0.8em;
     display: block;
@@ -55,35 +55,33 @@ footer {
     right: 20px;
     top: 20px;
 }
-h2 { 
+h2 {
     clear: both;
     padding-left: 20px;
     color: #333;
     margin-bottom: 0;
 }
- 
+
 h3 {
     font-size: 1.1em;
     margin-bottom: 0;
 }
-    
+
 .half {
     width: 46.9%;
     display: inline-block;
 }
-    
+
 @media (max-width: 600px) {
     .half {
         width: 100%;
     }
 }
-    
+
 .unit {
     font-size: 0.5em;
     display: inline-block;
 }
-
-
 
 </style>
 </head>
@@ -91,14 +89,14 @@ h3 {
 
 <h2>Physical Health</h2>
 
-<div class="tile success">
+<div class="tile warning">
     <h3>days since last exercise activity</h3>
-    <span>2</span>
+    <span>3</span>
 </div>
 
-<div class="tile success">
+<div class="tile failed">
     <h3>meals cooked<em>last week</em></h3>
-    <span>1</span>
+    <span>0</span>
 </div>
 
 <div class="tile failed">
@@ -108,41 +106,40 @@ h3 {
 
 <div class="tile success">
     <h3>alcoholic drinks consumed<em>last 7 days</em></h3>
-    <span>6</span>
+    <span>9</span>
 </div>
-    
+
 <div class="tile warning">
     <h3><a href="http://www.brodericksbrothers.com/brodericks-products/road-rocking-choc-choc-block/">road rocking choc choc blocks consumed</a><em>last 7 days</em></h3>
     <span>3</span>
 </div>
 
+<h2>Mental Health</h2>
 
-    <h2>Mental Health</h2>
+<div class="tile success">
+    <h3>pocket reading queue</h3>
+    <span>3</span>
+</div>
 
-    <div class="tile success">
-        <h3>pocket reading queue</h3>
-        <span>2</span>
-    </div>
+<div class="tile success">
+    <h3>podcast episodes</h3>
+    <span>3<span class="unit">h</span></span>
+</div>
 
-    <div class="tile success">
-        <h3>podcast episodes</h3>
-        <span>0<span class="unit">h</span></span>
-    </div>
+<h2>Financial Health</h2>
 
-    <h2>Financial Health</h2>
+<div class="tile success">
+    <h3>monthly growth of networth<em>(% relative to financial independence target)</em></h3>
+    <span>2.6<span class="unit">%</span></span>
+</div>
 
-    <div class="tile success">
-        <h3>monthly growth of networth<em>(% relative to financial independence target)</em></h3>
-        <span>2.6<span class="unit">%</span></span>
-    </div>
-
-    <div class="tile warning">
-        <h3>amount of liquid savings<em>(not invested)</em></h3>
-        <span>4<span class="unit">months</span></span>
-    </div>
+<div class="tile warning">
+    <h3>amount of liquid savings<em>(not invested)</em></h3>
+    <span>4<span class="unit">months</span></span>
+</div>
 
 <footer>
-last updated: Dec 11 2016
+last updated: Dec 12 2016
 </footer>
 </body>
 </html>
