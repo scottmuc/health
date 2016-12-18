@@ -1,11 +1,11 @@
 # TYPE physical_time_since_last_workout_in_days gauge
-physical_time_since_last_workout_in_days 6
+physical_time_since_last_workout_in_days 1
 
 # TYPE physical_meals_cooked_in_last_7_days_count gauge
-physical_meals_cooked_in_last_7_days_count 0
+physical_meals_cooked_in_last_7_days_count 1
 
 # TYPE physical_body_weight_kilos gauge
-physical_body_weight_kilos 90.5
+physical_body_weight_kilos 92
 
 # TYPE physical_drinks_in_last_7_days_count gauge
 physical_drinks_in_last_7_days_count 20
@@ -15,7 +15,7 @@ physical_drinks_in_last_7_days_count 20
 mental_pocket_reading_queue_articles 1
 
 # TYPE mental_podcast_episodes_hours gauge
-mental_podcast_episodes_hours 8
+mental_podcast_episodes_hours 2
 
 
 # TYPE financial_monthly_networth_grown gauge
