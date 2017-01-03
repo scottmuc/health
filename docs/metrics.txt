@@ -1,5 +1,5 @@
 # TYPE physical_time_since_last_workout_in_days gauge
-physical_time_since_last_workout_in_days 1
+physical_time_since_last_workout_in_days 0
 
 # TYPE physical_meals_cooked_in_last_7_days_count gauge
 physical_meals_cooked_in_last_7_days_count 4
@@ -8,7 +8,7 @@ physical_meals_cooked_in_last_7_days_count 4
 physical_body_weight_kilos 91.5
 
 # TYPE physical_drinks_in_last_7_days_count gauge
-physical_drinks_in_last_7_days_count 7
+physical_drinks_in_last_7_days_count 6
 
 
 # TYPE mental_pocket_reading_queue_articles gauge
