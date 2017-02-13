@@ -8,7 +8,7 @@ physical_meals_cooked_in_last_7_days_count 2
 physical_body_weight_kilos 92
 
 # TYPE physical_drinks_in_last_7_days_count gauge
-physical_drinks_in_last_7_days_count 8
+physical_drinks_in_last_7_days_count 9
 
 
 # TYPE mental_pocket_reading_queue_articles gauge
