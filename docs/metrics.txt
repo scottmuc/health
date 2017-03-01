@@ -1,5 +1,5 @@
 # TYPE physical_time_since_last_workout_in_days gauge
-physical_time_since_last_workout_in_days 1
+physical_time_since_last_workout_in_days 0
 
 # TYPE physical_meals_cooked_in_last_7_days_count gauge
 physical_meals_cooked_in_last_7_days_count 4
@@ -12,13 +12,13 @@ physical_drinks_in_last_7_days_count 10
 
 
 # TYPE mental_time_since_last_writing_activity_in_days gauge
-mental_time_since_last_writing_activity_in_days 1
+mental_time_since_last_writing_activity_in_days 2
 
 # TYPE mental_pocket_reading_queue_articles gauge
 mental_pocket_reading_queue_articles 8
 
 # TYPE mental_podcast_episodes_hours gauge
-mental_podcast_episodes_hours 6
+mental_podcast_episodes_hours 4
 
 # TYPE mental_open_github_issues_count gauge
 mental_open_github_issues_count 18
