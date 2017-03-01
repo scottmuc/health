@@ -25,7 +25,7 @@ mental_open_github_issues_count 18
 
 
 # TYPE financial_monthly_networth_grown gauge
-financial_monthly_networth_grown 0.35
+financial_monthly_networth_grown 2.67
 
 # TYPE financial_liquid_assets_months gauge
 financial_liquid_assets_months 4
