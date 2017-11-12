@@ -13,25 +13,23 @@ type ServiceAPI interface {
 }
 
 // Service holder of context to connect to strava API
-type Service struct {
-	client  *gostrava.Client
-	service *gostrava.CurrentAthleteService
+type service struct {
+	athleteService *gostrava.CurrentAthleteService
 }
 
 // NewService creates a new service that is ready to talk to the strava API
 // using the specified access token
 func NewService(accessToken string) ServiceAPI {
 	client := gostrava.NewClient(accessToken)
-	return &Service{
-		client:  client,
-		service: gostrava.NewCurrentAthleteService(client),
+	return service{
+		athleteService: gostrava.NewCurrentAthleteService(client),
 	}
 }
 
 // GetLatestActivity retrieves the name and time of the latest activity
 // for the account that holds the access token.
-func (s *Service) GetLatestActivity() (string, time.Time) {
-	activities, err := s.service.ListActivities().Page(1).PerPage(1).Do()
+func (s service) GetLatestActivity() (string, time.Time) {
+	activities, err := s.athleteService.ListActivities().Page(1).PerPage(1).Do()
 	if err != nil {
 		// TODO this needs a test!
 		panic(err)
