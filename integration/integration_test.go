@@ -14,7 +14,7 @@ var _ = Describe("Running the health binary", func() {
 		Eventually(session).Should(Exit(0))
 	})
 
-	It("prints out an acvitity and when it happened", func() {
+	It("prints out an activity and when it happened", func() {
 		testStravaAccessToken := getEnvOrFail("STRAVA_ACCESS_TOKEN")
 		session := executeBin("-stravaAccessToken", testStravaAccessToken)
 		Eventually(session).Should(Say(`.+\. Occurred [0-9]+ day\(s\) ago`))

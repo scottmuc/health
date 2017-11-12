@@ -3,7 +3,7 @@ package strava
 import (
 	"time"
 
-	strava "github.com/strava/go.strava"
+	gostrava "github.com/strava/go.strava"
 )
 
 // ServiceAPI the public interface to the things that I needs
@@ -14,17 +14,17 @@ type ServiceAPI interface {
 
 // Service holder of context to connect to strava API
 type Service struct {
-	client  *strava.Client
-	service *strava.CurrentAthleteService
+	client  *gostrava.Client
+	service *gostrava.CurrentAthleteService
 }
 
 // NewService creates a new service that is ready to talk to the strava API
 // using the specified access token
 func NewService(accessToken string) ServiceAPI {
-	client := strava.NewClient(accessToken)
+	client := gostrava.NewClient(accessToken)
 	return &Service{
 		client:  client,
-		service: strava.NewCurrentAthleteService(client),
+		service: gostrava.NewCurrentAthleteService(client),
 	}
 }
 
